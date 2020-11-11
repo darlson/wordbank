@@ -25,18 +25,47 @@ const danskOrtho =      ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'
 
 // * Keep:
 // Norsk/Dansk: å, ø, æ
-// German: ä, ö, ü
-// Spanish: ñ
+// German: ä, ö, ü :: u0308
+// Spanish: ñ :: u0303
 
 // * Replace:
-// German: ß - ss
-// French: æ - ae; œ - oe
-// Italian: î - ii
+// German: ß - ss :: u00DF
+// French: æ - ae :: u00E6 ; œ - oe :: u0153
+// Italian: î - ii :: u00EE
 
 // * Normalize:
-// French: é, à, è, ù, â, ê, î, ô, û, ë, ï, ü, ÿ, ç
+// French: é, à, è, ù, â, ê, î, ô, û, ë, ï, ü, ÿ, ç :: u0300, u0301, u0302, u0308, u0327
 // Spanish: á, é, í, ó, ú, ý, ü
 // Italian: é, í, ó, ú, à, è, ì, ò, ù
+
+// // // // //
+
+// * By Language:
+// ? French: 
+// TODO: separate æ, œ
+// TODO: normalize, replace(/[\u0300-\u036f]/g, "")
+// TODO: refilter words to 5 letters only 
+
+// ? Spanish:
+// TODO: normalize, replace u0301 and u0308, *not* u0303
+// TODO: refilter words to 5 letters only 
+
+// ? Italian: 
+// TODO: separate î
+// TODO: normalize, replace(/[\u0300-\u0301]/g, "")
+// TODO: refilter words to 5 letters only 
+
+// ? German:
+// TODO: replace ß with ss
+// TODO: keep all umlauts; normalize nothing
+// TODO: refilter words to 5 letters only 
+
+// ? Norsk/Dansk:
+// // TODO: replace nothing
+// // TODO: normalize nothing
+// TODO: refilter words to 5 letters only 
+
+// // // // //
 
 // test if a given string is an isogram (all unique letters)
 function isIsogram(str){
